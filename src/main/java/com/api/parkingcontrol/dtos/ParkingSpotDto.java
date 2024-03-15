@@ -1,16 +1,19 @@
 package com.api.parkingcontrol.dtos;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-class ParkingSpotDto {
+public class ParkingSpotDto {
 
     @NotBlank
     private String parkingSpotNumber;
 
     @NotBlank
     @Size(max = 7)
-    private String locensePlateCar;
+    @JsonProperty(required = true)
+    private String licensePlateCar;
 
     @NotBlank
     private String brandCar;
@@ -35,12 +38,12 @@ class ParkingSpotDto {
         this.parkingSpotNumber = parkingSpotNumber;
     }
 
-    public String getLocensePlateCar() {
-        return locensePlateCar;
+    public String getLicensePlateCar() {
+        return licensePlateCar;
     }
 
-    public void setLocensePlateCar(String locensePlateCar) {
-        this.locensePlateCar = locensePlateCar;
+    public void setLicensePlateCar(String licensePlateCar) {
+        this.licensePlateCar = licensePlateCar;
     }
 
     public String getBrandCar() {
@@ -82,5 +85,4 @@ class ParkingSpotDto {
     public void setBlock(String block) {
         this.block = block;
     }
-
 }
