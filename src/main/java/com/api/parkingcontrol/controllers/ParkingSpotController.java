@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,7 @@ import jakarta.validation.Valid;
 public class ParkingSpotController {
 
     final ParkingSpotService parkingSpotService;
-    private Optional<ParkingSpotModel> parkinkSpotModelOptional;
+    private Optional<ParkingSpotModel> parkingSpotModelOptional;
 
     public ParkingSpotController(ParkingSpotService parkingSpotService) {
         this.parkingSpotService = parkingSpotService;
@@ -59,7 +60,7 @@ public class ParkingSpotController {
     }
 
     @GetMapping
-    public ResponseEntity<com.api.parkingcontrol.services.Page<ParkingSpotModel>> getAllParkingSpots(
+    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(
             @PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
@@ -70,7 +71,7 @@ public class ParkingSpotController {
         if (!parkingSpotModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(parkinkSpotModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModelOptional.get());
     }
 
     @DeleteMapping("/{id}")
