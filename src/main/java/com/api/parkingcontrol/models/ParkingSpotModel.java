@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "TB_PARKING_SPOT")
 public class ParkingSpotModel implements Serializable {
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
