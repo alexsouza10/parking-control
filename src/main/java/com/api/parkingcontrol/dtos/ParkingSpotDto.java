@@ -85,4 +85,9 @@ public class ParkingSpotDto {
     public void setBlock(String block) {
         this.block = block;
     }
+
+    public String getColorCar() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getColorCar'");
+    }
 }
