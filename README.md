@@ -1,4 +1,4 @@
-# README - Parking Control API
+# Parking Control API
 
 ## Descrição
 O projeto **Parking Control API** é uma API RESTful desenvolvida em Java com o framework Spring Boot. A finalidade desta API é gerenciar os dados de estacionamento, permitindo operações básicas de CRUD (Create, Read, Update, Delete) sobre os registros de vagas de estacionamento.
